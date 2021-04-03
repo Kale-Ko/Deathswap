@@ -9,15 +9,10 @@ import org.bukkit.entity.Player;
 public class TwoPlayerGame extends Game {
     Main plugin;
 
-    public Player player1;
-    public Player player2;
+    public Player player1, player2;
+    public Location player1Location, player2Location;
 
-    public Location player1Location;
-    public Location player2Location;
-
-    public int time;
-
-    public int taskId;
+    public int time, taskId;
 
     @Override
     public Game start(List<Player> players, int gameTime) {

@@ -7,7 +7,7 @@ default-message-color: '&4'
 messages:
     starting: '&a&lThe game is starting!'
     stopping: '&a&lThe game has stopped'
-    must-have-two-people: You can only play with two people
+    must-have-two-people: 'You can only play with two, three, or four people'
     reload: '&aReloading!'
-    not-a-command: That is not a valid sub command
+    not-a-command: 'That is not a valid sub command'
     no-console: '&cOnly players can execute this command'

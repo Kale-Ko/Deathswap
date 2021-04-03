@@ -13,11 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main extends JavaPlugin {
-    public String version = "1.0.0";
-
     public FileConfiguration config = this.getConfig();
 
-    Game game;
+    private Game game;
 
     @Override
     public void onEnable() {
@@ -26,7 +24,7 @@ public class Main extends JavaPlugin {
         saveConfig();
         config = this.getConfig();
 
-        List<String> subcommands = new ArrayList<String>();
+        List<String> subcommands = new ArrayList<>();
         subcommands.add("help");
         subcommands.add("start");
         subcommands.add("stop");
@@ -48,6 +46,7 @@ public class Main extends JavaPlugin {
                 if (args[0].equalsIgnoreCase("help")) {
                     sendMessage(sender, "Type /deathswap help for this");
                     sendMessage(sender, "Type /deathswap start to start the game");
+                    sendMessage(sender, "Type /deathswap stop to stop the game");
                     sendMessage(sender, "Type /deathswap reload to reload the config");
 
                     return true;
@@ -60,11 +59,8 @@ public class Main extends JavaPlugin {
                     return true;
                 } else if (args[0].equalsIgnoreCase("start")) {
                     if (Bukkit.getOnlinePlayers().size() >= 2 && Bukkit.getOnlinePlayers().size() <= 4 ) {
-                        List<Player> players = new ArrayList<Player>();
 
-                        for (Player player : Bukkit.getOnlinePlayers()) {
-                            players.add(player);
-                        }
+                        List<Player> players = new ArrayList<>(Bukkit.getOnlinePlayers());
 
                         if (players.size() == 2) {
                             game = new TwoPlayerGame().start(players, config.getInt("time"));

@@ -9,12 +9,10 @@ import org.bukkit.command.TabCompleter;
 import org.bukkit.util.StringUtil;
 
 public class AutoCompleter implements TabCompleter {
-    List<String> arguments = new ArrayList<String>();
+    List<String> arguments = new ArrayList<>();
 
     public AutoCompleter(List<String> list) {
-        for (String string : list) {
-            this.arguments.add(string);
-        }
+        this.arguments.addAll(list);
     }
 
     @Override
